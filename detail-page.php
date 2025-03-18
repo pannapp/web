@@ -162,8 +162,18 @@ https://templatemo.com/tm-584-pod-talk
                                                 <h2 class='mb-2'>".$khoa_hoc['ten_khoa_hoc']."</h2>
 
                                                 <p>".$khoa_hoc['mo_ta']."</p>
+                                                
+                                                
+
+
+
+
+
+
+
 
                                                 </div>";
+                                                //Danh sách bài học
                                     ?>
                                     
                             
