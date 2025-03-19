@@ -9,7 +9,7 @@
         $sdt_reg = trim($_POST['sdt_reg']);
         $pass_reg = trim($_POST['password_reg']);
         //$pass = password_hash($pass, PASSWORD_DEFAULT);
-        if (empty($ho_ten_reg) || empty($username_reg) || empty($pass_reg) || empty($email_reg) || empty($sdt_reg)) {
+        if (empty($ho_ten_reg) || empty($username_reg) || empty($pass_reg) || empty($email_reg) ) {
             $_SESSION['error'] = "Vui lòng điền đầy đủ thông tin !";
             header("Location: login-register.php#register");
             exit();

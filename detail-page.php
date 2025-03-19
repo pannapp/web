@@ -15,6 +15,7 @@
 
         if ($result->num_rows > 0) {
             $khoa_hoc = $result->fetch_assoc();
+            $_SESSION['khoa_hoc']=$khoa_hoc;
         } 
     } else {
         $_SESSION['error']= "Không có khóa học được chọn";
@@ -147,7 +148,7 @@ https://templatemo.com/tm-584-pod-talk
                                                     echo "<a href='#'><h3 style='color:rgb(119, 186, 4);'><i class='bi bi-cart-plus'></i>Miễn phí</h3></a>";
                                                 }
                                                 else{
-                                                    echo "<a href='#'><h3 style='color:rgb(119, 186, 4);'><i class='bi bi-cart-plus'></i>Đăng ký ".$khoa_hoc['hoc_phi']."đ</h3></a>";
+                                                    echo "<a href='thanhtoan.php'><h3 style='color:rgb(119, 186, 4);'><i class='bi bi-cart-plus'></i>Đăng ký ".$khoa_hoc['hoc_phi']."đ</h3></a>";
                                                 }
                                                 ?>
                                                 
@@ -162,16 +163,6 @@ https://templatemo.com/tm-584-pod-talk
                                                 <h2 class='mb-2'>".$khoa_hoc['ten_khoa_hoc']."</h2>
 
                                                 <p>".$khoa_hoc['mo_ta']."</p>
-                                                
-                                                
-
-
-
-
-
-
-
-
                                                 </div>";
                                                 //Danh sách bài học
                                     ?>
@@ -188,7 +179,7 @@ https://templatemo.com/tm-584-pod-talk
                                     
                                     <div class="row">
                                         <?php 
-                                            if ($_SESSION['role'] ==3){
+                                            if (!isset($_SESSION['role']) || $_SESSION['role'] ==3){
                                                 echo "<div class='col-11' style='background-color: #e3ecfcff; margin-left: 5px; margin-right: 5px;'>
                                                <p>Bạn cần <a href='login-register.php'>đăng nhập</a> để sử dụng chức năng này</p>
                                             </div>  ";
