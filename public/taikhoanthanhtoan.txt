@@ -1,0 +1,6 @@
+Phương thức thanh toán: thẻ ATM
+Ngân hàng: NCB
+Số thẻ: 9704198526191432198
+Tên chủ thẻ: NGUYEN VAN A
+ngày phát hành: 07/15
+OTP: 123456
