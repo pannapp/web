@@ -164,10 +164,11 @@ https://templatemo.com/tm-584-pod-talk
 
                                                 <p>".$khoa_hoc['mo_ta']."</p>
                                                 </div>";
-                                                //Danh sách bài học
+                                    
+                                    
                                     ?>
                                     
-                            
+                                    
                                 </div>
                                 <div class="col-lg-3 col-12" style="background-color: #f0f0f0ff;">
                                     
