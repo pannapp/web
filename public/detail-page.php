@@ -164,11 +164,47 @@ https://templatemo.com/tm-584-pod-talk
 
                                                 <p>".$khoa_hoc['mo_ta']."</p>
                                                 </div>";
-                                    
-                                    
                                     ?>
-                                    
-                                    
+                                    <div class='container mt-4'>
+                                                    <h5><strong>Danh sách bài học</strong></h5>
+                                                    <div class='accordion' id='courseAccordion'>
+                                                        <?php
+                                                        $sql ="SELECT * FROM bai_hoc WHERE khoa_hoc_id=?;";                     
+                                                        $stmt = $conn->prepare($sql);
+                                                        $stmt->bind_param("i", $id);
+                                                        $stmt->execute();
+                                                        $result1 = $stmt->get_result();
+                                                        if($result1->num_rows >0){
+                                                            while ($row = $result1->fetch_assoc()){
+                                                                
+                                                                echo    "<div class='accordion-item'>
+                                                                            <h2 class='accordion-header'>
+                                                                                <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#chapter".$row['id']."'>
+                                                                                    ".$row['ten_bai_hoc']."
+                                                                                </button>
+                                                                            </h2>";
+                                                                echo            "<div id='chapter".$row['id']."' class='accordion-collapse collapse'>
+                                                                                <div class='accordion-body'>";
+                                                                $sql2 ="SELECT * FROM tai_lieu WHERE id=?;";                     
+                                                                $stmt = $conn->prepare($sql2);
+                                                                $stmt->bind_param("i", $row['tai_lieu_id']);
+                                                                $stmt->execute();
+                                                                $result2 = $stmt->get_result();
+                                                                if($result2->num_rows >0){
+                                                                    $i=1;
+                                                                    while ($row1 = $result2->fetch_assoc()){
+                                                                        echo    "<a href='#'>#".$i." ".$row1['ten_tai_lieu']."</a>";     
+                                                                        $i=$i+1;
+                                                                    }
+                                                                }
+                                                                 echo    "</div>
+                                                                        </div>
+                                                                        </div>";
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </div>
+                                    </div>
                                 </div>
                                 <div class="col-lg-3 col-12" style="background-color: #f0f0f0ff;">
                                     
