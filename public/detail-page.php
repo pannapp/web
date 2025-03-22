@@ -8,6 +8,7 @@
     include "Model/con_db.php";
     if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $id = intval($_GET['id']);
+        $_SESSION['id_khoa_hoc']=$id;
         $stmt = $conn->prepare("SELECT id,ten_khoa_hoc, mo_ta,FORMAT(FLOOR(hoc_phi), 0, 'de_DE') AS hoc_phi,img FROM khoa_hoc WHERE id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -142,8 +143,8 @@ https://templatemo.com/tm-584-pod-talk
                                             <?php
                                                 echo "<img src='images/khoahoc/".$khoa_hoc['img']."' class='custom-block-image img-fluid' alt=''>";
                                             ?>
-                                            <div class='profile-block profile-detail-block d-flex flex-wrap align-items-center mt-5'>
-                                                <?php 
+                                            <!-- <div class='profile-block profile-detail-block d-flex flex-wrap align-items-center mt-5'>
+                                                
                                                 if ($khoa_hoc['hoc_phi'] == 0){
                                                     echo "<a href='#'><h3 style='color:rgb(119, 186, 4);'><i class='bi bi-cart-plus'></i>Miễn phí</h3></a>";
                                                 }
@@ -152,7 +153,7 @@ https://templatemo.com/tm-584-pod-talk
                                                 }
                                                 ?>
                                                 
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -185,15 +186,31 @@ https://templatemo.com/tm-584-pod-talk
                                                                             </h2>";
                                                                 echo            "<div id='chapter".$row['id']."' class='accordion-collapse collapse'>
                                                                                 <div class='accordion-body'>";
+
+                                                                $sql3 ="SELECT * FROM bai_kiem_tra WHERE bai_hoc_id=?;";                     
+                                                                $stmt = $conn->prepare($sql3);
+                                                                $stmt->bind_param("i", $row['id']);
+                                                                $stmt->execute();
+                                                                $result3 = $stmt->get_result();
+
+                                                                if($result3->num_rows >0){
+                                                                    $i=1;
+
+                                                                    while ($row1 = $result3->fetch_assoc()){
+                                                                        echo    "<a href='practice.php'>#".$i." ".$row1['ten_bkt']."</a><br>";     
+                                                                        $i=$i+1;
+                                                                    }
+                                                                }
+
                                                                 $sql2 ="SELECT * FROM tai_lieu WHERE id=?;";                     
                                                                 $stmt = $conn->prepare($sql2);
                                                                 $stmt->bind_param("i", $row['tai_lieu_id']);
                                                                 $stmt->execute();
                                                                 $result2 = $stmt->get_result();
+                                                                
                                                                 if($result2->num_rows >0){
-                                                                    $i=1;
                                                                     while ($row1 = $result2->fetch_assoc()){
-                                                                        echo    "<a href='#'>#".$i." ".$row1['ten_tai_lieu']."</a>";     
+                                                                        echo    "<a href='practice.php'>#".$i." ".$row1['ten_tai_lieu']."</a><br>";     
                                                                         $i=$i+1;
                                                                     }
                                                                 }
