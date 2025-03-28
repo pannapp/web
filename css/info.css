@@ -1,0 +1,58 @@
+.user-info-section {  
+    background-color: #f7f7f7;  
+    padding: 30px;  
+    border-radius: 10px;  
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);   
+    margin: 20px auto;  /* Căn giữa khung ngoài */  
+    max-width: 600px; /* Giới hạn chiều rộng tối đa cho container */  
+    width: 100%; /* Đảm bảo container không vượt quá chiều rộng của màn hình */  
+}  
+
+h1.title {  
+    font-size: 30px;   
+    color: #4bb6b7;   
+    margin-bottom: 20px;   
+    text-align: center;   
+}  
+
+.form-box {  
+    background-color: #ffffff;  
+    padding: 30px;  
+    border-radius: 10px;  
+    border: 1px solid #ddd;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Đổ bóng cho ô nội dung */  
+}  
+
+.form-group {  
+    margin-bottom: 20px;  
+}  
+
+.form-control {  
+    width: 100%;  
+    padding: 12px;  
+    border-radius: 5px;  
+    border: 1px solid #ccc;  
+    background-color: #fefefe;  
+    cursor: not-allowed;  
+    transition: border-color 0.3s;   
+}  
+
+.form-control:focus {  
+    border-color: #4bb6b7;   
+    outline: none;   
+}  
+
+.btn-primary {  
+    background-color: #439fcd; /* Màu xanh dương cho nút Đăng xuất */  
+    color: white;  
+    border: none;  
+    padding: 12px 20px;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 16px;   
+    transition: background-color 0.3s;   
+}  
+
+.btn-primary:hover {  
+    background-color: #0056b3; /* Màu khi hover vào nút */  
+}  
